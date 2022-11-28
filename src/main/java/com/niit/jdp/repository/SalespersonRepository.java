@@ -85,7 +85,7 @@ public class SalespersonRepository {
                 double commissionRate = resultSet.getDouble("commission_rate");
 
                 //8. create a Salesperson object using the values from the result set
-                salesperson = new Salesperson(name, city, commissionRate);
+                salesperson = new Salesperson(salesId, name, city, commissionRate);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
