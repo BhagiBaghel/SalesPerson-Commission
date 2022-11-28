@@ -97,7 +97,7 @@ public class SalespersonRepository {
     /**
      * This method is used to insert a new record in the salesperson table
      *
-     * @param salesperson
+     * @param salesperson - salesperson object
      * @return true if the record is inserted successfully, false otherwise
      */
     public boolean addSalesperson(Salesperson salesperson) {
@@ -122,6 +122,10 @@ public class SalespersonRepository {
 
     /**
      * This method is used to update the commission rate of a salesperson based on their id
+     *
+     * @param salesId        - id of the salesperson
+     * @param commissionRate - new commission rate
+     * @return true if the record is updated successfully, false otherwise
      */
     public boolean updateCommissionById(int salesId, double commissionRate) {
         int numberOfRowsAffected = 0;
