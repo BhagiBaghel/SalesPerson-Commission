@@ -22,6 +22,13 @@ public class Salesperson {
         this.commissionRate = commissionRate;
     }
 
+    public Salesperson(int salesId, String name, String city, double commissionRate) {
+        this.salesId = salesId;
+        this.name = name;
+        this.city = city;
+        this.commissionRate = commissionRate;
+    }
+
     public int getSalesId() {
         return salesId;
     }
