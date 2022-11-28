@@ -45,7 +45,7 @@ public class SalespersonRepository {
                 double commissionRate = resultSet.getDouble("commission_rate");
 
                 //7. create a Salesperson object using the values from the result set
-                Salesperson salesperson = new Salesperson(salesId, name, city, commissionRate);
+                Salesperson salesperson = new Salesperson(name, city, commissionRate);
 
                 //8. add the salesperson object to the salespersons list
                 salespersons.add(salesperson);
@@ -85,7 +85,7 @@ public class SalespersonRepository {
                 double commissionRate = resultSet.getDouble("commission_rate");
 
                 //8. create a Salesperson object using the values from the result set
-                salesperson = new Salesperson(id, name, city, commissionRate);
+                salesperson = new Salesperson(name, city, commissionRate);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -103,7 +103,7 @@ public class SalespersonRepository {
     public boolean addSalesperson(Salesperson salesperson) {
         int numberOfRowsAffected = 0;
         //2. write an insert query
-        String insertQuery = "insert into `sales_commission`.`salesperson` (`name, `city`, `commission_rate`)" +
+        String insertQuery = "insert into `sales_commission`.`salesperson` (`name`, `city`, `commission_rate`)" +
                 "values (?, ?, ?);";
         //3. create PreparedStatement object
         try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {

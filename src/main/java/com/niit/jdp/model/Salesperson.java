@@ -16,8 +16,7 @@ public class Salesperson {
     public Salesperson() {
     }
 
-    public Salesperson(int salesId, String name, String city, double commissionRate) {
-        this.salesId = salesId;
+    public Salesperson(String name, String city, double commissionRate) {
         this.name = name;
         this.city = city;
         this.commissionRate = commissionRate;
