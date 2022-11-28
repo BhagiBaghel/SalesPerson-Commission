@@ -119,4 +119,25 @@ public class SalespersonRepository {
         }
         return numberOfRowsAffected > 0;
     }
+
+    /**
+     * This method is used to update the commission rate of a salesperson based on their id
+     */
+    public boolean updateCommissionById(int salesId, double commissionRate) {
+        int numberOfRowsAffected = 0;
+        //2. write an update query
+        String updateQuery = "update `sales_commission`.`salesperson` set `commission_rate` = ?" +
+                "where (`sales_id` = ?);";
+        //3. create PreparedStatement object
+        try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
+            //4. set the values for parameters in update query
+            preparedStatement.setDouble(1, commissionRate);
+            preparedStatement.setInt(2, salesId);
+            //5. execute the query
+            numberOfRowsAffected = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return numberOfRowsAffected > 0;
+    }
 }
