@@ -93,4 +93,30 @@ public class SalespersonRepository {
         //9. return the sales person object
         return salesperson;
     }
+
+    /**
+     * This method is used to insert a new record in the salesperson table
+     *
+     * @param salesperson
+     * @return true if the record is inserted successfully, false otherwise
+     */
+    public boolean addSalesperson(Salesperson salesperson) {
+        int numberOfRowsAffected = 0;
+        //2. write an insert query
+        String insertQuery = "insert into `sales_commission`.`salesperson` (`name, `city`, `commission_rate`)" +
+                "values (?, ?, ?);";
+        //3. create PreparedStatement object
+        try (PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
+            //4. set the values for parameters in insert query
+            preparedStatement.setString(1, salesperson.getName());
+            preparedStatement.setString(2, salesperson.getCity());
+            preparedStatement.setDouble(3, salesperson.getCommissionRate());
+
+            //5. execute the query
+            numberOfRowsAffected = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return numberOfRowsAffected > 0;
+    }
 }
