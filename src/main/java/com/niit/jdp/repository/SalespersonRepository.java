@@ -59,7 +59,7 @@ public class SalespersonRepository {
     /**
      * This method is used to get the record os a salesperson based on their id
      *
-     * @param salesId
+     * @param salesId - id of the salesperson
      * @return Salesperson object
      */
     public Salesperson getSalespersonById(int salesId) {
