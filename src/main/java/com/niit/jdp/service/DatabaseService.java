@@ -15,6 +15,12 @@ public class DatabaseService {
     private static final String PASSWORD = "Pinky@123";
     Connection connection;
 
+    public DatabaseService() {
+        //connection value 'null' represents that the connection has not yet been established
+        //and the database is not available for use in the Java program
+        connection = null;
+    }
+
     private void connect() throws ClassNotFoundException, SQLException {
         //1. Load the driver class using Class.forName() method
         Class.forName("com.mysql.cj.jdbc.Driver");
