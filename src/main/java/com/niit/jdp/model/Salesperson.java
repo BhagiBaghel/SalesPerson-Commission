@@ -10,4 +10,14 @@ public class Salesperson {
     private String name;
     private String city;
     private double commissionRate;
+
+    public Salesperson() {
+    }
+
+    public Salesperson(int salesId, String name, String city, double commissionRate) {
+        this.salesId = salesId;
+        this.name = name;
+        this.city = city;
+        this.commissionRate = commissionRate;
+    }
 }
