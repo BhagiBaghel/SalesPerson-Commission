@@ -5,8 +5,11 @@
  */
 package com.niit.jdp.repository;
 
+import com.niit.jdp.service.DatabaseService;
+
 import java.sql.Connection;
 
 public class SalespersonRepository {
     Connection connection;
+    DatabaseService databaseService;
 }
