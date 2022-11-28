@@ -1,7 +1,9 @@
 package com.niit.jdp;
 
+import com.niit.jdp.service.DatabaseService;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        DatabaseService databaseService = new DatabaseService();
     }
 }
