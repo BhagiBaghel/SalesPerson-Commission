@@ -5,6 +5,8 @@
  */
 package com.niit.jdp.model;
 
+import java.util.Objects;
+
 public class Salesperson {
     private int salesId;
     private String name;
@@ -57,5 +59,18 @@ public class Salesperson {
                 ", city='" + city + '\'' +
                 ", commissionRate=" + commissionRate +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Salesperson)) return false;
+        Salesperson that = (Salesperson) o;
+        return getSalesId() == that.getSalesId() && Double.compare(that.getCommissionRate(), getCommissionRate()) == 0 && Objects.equals(getName(), that.getName()) && Objects.equals(getCity(), that.getCity());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSalesId(), getName(), getCity(), getCommissionRate());
     }
 }
