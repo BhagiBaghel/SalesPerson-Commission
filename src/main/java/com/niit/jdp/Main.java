@@ -9,6 +9,7 @@ public class Main {
         DatabaseService databaseService = new DatabaseService();
         try {
             databaseService.getConnectionToDatabase();
+            databaseService.printConnectionStatus();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
