@@ -48,4 +48,14 @@ public class Salesperson {
     public void setCommissionRate(double commissionRate) {
         this.commissionRate = commissionRate;
     }
+
+    @Override
+    public String toString() {
+        return "Salesperson{" +
+                "salesId=" + salesId +
+                ", name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", commissionRate=" + commissionRate +
+                '}';
+    }
 }
