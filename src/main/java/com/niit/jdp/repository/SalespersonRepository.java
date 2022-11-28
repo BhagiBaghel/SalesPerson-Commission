@@ -16,6 +16,14 @@ public class SalespersonRepository {
 
     public SalespersonRepository() throws SQLException, ClassNotFoundException {
         databaseService = new DatabaseService();
+        //1. establish connection to the database
         connection = databaseService.getConnectionToDatabase();
+    }
+
+    /**
+     * This method is used to get all the records from the salesperson table in sales_commission database
+     */
+    List<Salesperson> getAllSalespersons() {
+
     }
 }
