@@ -144,4 +144,26 @@ public class SalespersonRepository {
         }
         return numberOfRowsAffected > 0;
     }
+
+    /**
+     * This method is used to delete a record from the salesperson table based on their id
+     *
+     * @param salesId - id of the salesperson
+     * @return - true if the record is deleted successfully, false otherwise
+     */
+    public boolean deleteById(int salesId) {
+        int numberOfRowsAffected = 0;
+        //2. write delete query
+        String deleteQuery = "delete from `sales_commission`.`salesperson` where (`sales_id` = ?);";
+        //3. create PreparedStatement object
+        try (PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery)) {
+            //4. set the values for parameters in delete query
+            preparedStatement.setInt(1, salesId);
+            //5. execute the query
+            numberOfRowsAffected = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return numberOfRowsAffected > 0;
+    }
 }
