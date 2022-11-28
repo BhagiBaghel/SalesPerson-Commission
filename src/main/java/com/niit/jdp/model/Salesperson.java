@@ -6,4 +6,8 @@
 package com.niit.jdp.model;
 
 public class Salesperson {
+    private int salesId;
+    private String name;
+    private String city;
+    private double commissionRate;
 }
