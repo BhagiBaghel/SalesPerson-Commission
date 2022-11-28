@@ -8,10 +8,7 @@ package com.niit.jdp.repository;
 import com.niit.jdp.model.Salesperson;
 import com.niit.jdp.service.DatabaseService;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,5 +54,43 @@ public class SalespersonRepository {
             exception.printStackTrace();
         }
         return salespersons;
+    }
+
+    /**
+     * This method is used to get the record os a salesperson based on their id
+     *
+     * @param salesId
+     * @return Salesperson object
+     */
+    public Salesperson getSalespersonById(int salesId) {
+        //2. write a query to select a particular record from the salesperson table
+        //? is a placeholder for the value of salesId
+        String selectQuery = "select * from `sales_commission`.`salesperson` where (`sales_id` = ?);";
+        Salesperson salesperson = null;
+
+        //3. create a PreparedStatement object to execute a parameterized query
+        try (PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
+            //4. set the value of the parameter
+            preparedStatement.setInt(1, salesId);
+
+            //5. execute the query
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            //6. check if the result set has a record
+            if (resultSet.next()) {
+                //7. get the values from the result set and store them inside variables
+                int id = resultSet.getInt("sales_id");
+                String name = resultSet.getString("name");
+                String city = resultSet.getString("city");
+                double commissionRate = resultSet.getDouble("commission_rate");
+
+                //8. create a Salesperson object using the values from the result set
+                salesperson = new Salesperson(id, name, city, commissionRate);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        //9. return the sales person object
+        return salesperson;
     }
 }
