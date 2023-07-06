@@ -1,8 +1,4 @@
-/*
- * Author : Pinky Sodhi
- * Date : 28-11-2022
- * Created Using : IntelliJ IDEA Community Edition
- */
+
 package com.niit.jdp.model;
 
 import java.util.Objects;
@@ -72,7 +68,10 @@ public class Salesperson {
         if (this == o) return true;
         if (!(o instanceof Salesperson)) return false;
         Salesperson that = (Salesperson) o;
-        return getSalesId() == that.getSalesId() && Double.compare(that.getCommissionRate(), getCommissionRate()) == 0 && Objects.equals(getName(), that.getName()) && Objects.equals(getCity(), that.getCity());
+        return getSalesId() == that.getSalesId()
+                && Double.compare(that.getCommissionRate(), getCommissionRate()) == 0
+                && Objects.equals(getName(), that.getName())
+                && Objects.equals(getCity(), that.getCity());
     }
 
     @Override

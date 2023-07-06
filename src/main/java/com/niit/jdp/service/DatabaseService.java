@@ -1,8 +1,4 @@
-/*
- * Author : Pinky Sodhi
- * Date : 28-11-2022
- * Created Using : IntelliJ IDEA Community Edition
- */
+
 package com.niit.jdp.service;
 
 import java.sql.Connection;
@@ -12,7 +8,7 @@ import java.sql.SQLException;
 public class DatabaseService {
     private static final String URL = "jdbc:mysql://localhost:3306/sales_commission";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "Pinky@123";
+    private static final String PASSWORD = "Bhagi@777";
     Connection connection;
 
     public DatabaseService() {
